@@ -1,5 +1,5 @@
 {
-  "source": {
+
     "source_export": "person",
     "url_DB": "jdbc:postgresql://localhost:5432/c0001",
     "username": "postgres",
@@ -123,5 +123,5 @@
 
       }
     ]
-  }
+  
 }
