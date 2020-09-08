@@ -1,16 +1,15 @@
 {
-"source_config":{
-"source_map":{
-"C0001":{
-    "source":{
-    "source_export": "person",
-    "url_DB": "jdbc:postgresql://localhost:5432/c0001",
-    "username": "postgres",
-    "password": "postgres",
-    "fields": [
-      {
-        "name": "Create function size for materialized view",
-        "action": "CREATE OR REPLACE FUNCTION size(materialized varchar, column_name varchar)
+  "source_config": {
+    "source_map": {
+      "C0001": {
+          "source_export": "person",
+          "url_DB": "jdbc:postgresql://localhost:5432/c0001",
+          "username": "postgres",
+          "password": "postgres",
+          "fields": [
+            {
+              "name": "Create function size for materialized view",
+              "action": "CREATE OR REPLACE FUNCTION size(materialized varchar, column_name varchar)
                         RETURNS int AS
                     $$
                     DECLARE
@@ -21,10 +20,10 @@
                     END
                     $$
                         LANGUAGE plpgsql; "
-      },
-      {
-        "name": "Create procedure for create table statistic and balks",
-        "action": "CREATE OR REPLACE PROCEDURE balk(length integer, materialized varchar, column_name varchar, export varchar)
+            },
+            {
+              "name": "Create procedure for create table statistic and balks",
+              "action": "CREATE OR REPLACE PROCEDURE balk(length integer, materialized varchar, column_name varchar, export varchar)
                         LANGUAGE plpgsql AS
                     $$
                     DECLARE
@@ -58,34 +57,34 @@
                         END IF;
                     END
                     $$; "
-      },
-      {
-        "name": "Create index for uen from additional",
-        "action": " CREATE INDEX IF NOT EXISTS additional_uen_pk_idx ON additional(uen);"
-      },
-      {
-        "name": "Create materialized view for uen from additional",
-        "action": "CREATE materialized VIEW IF NOT EXISTS test AS
+            },
+            {
+              "name": "Create index for uen from additional",
+              "action": " CREATE INDEX IF NOT EXISTS additional_uen_pk_idx ON additional(uen);"
+            },
+            {
+              "name": "Create materialized view for uen from additional",
+              "action": "CREATE materialized VIEW IF NOT EXISTS test AS
                                         SELECT ROW_NUMBER() OVER () AS id, uen
                                         FROM additional
                                         GROUP BY uen
                                         order by id;"
-      },
-      {
-        "name": "Create index for uen from test",
-        "action": " CREATE INDEX IF NOT EXISTS test_uen_pk_idx ON test (uen); "
-      },
-      {
-        "name": "Create index for id from test",
-        "action": " CREATE INDEX IF NOT EXISTS test_id_pk_idx ON test (id); "
-      },
-      {
-        "name": "Call balk with 100 element from test,field uen and export person",
-        "action": " call balk(100, 'test', 'uen', 'person');"
-      },
-      {
-        "name": "Create function set_in_process",
-        "action": "CREATE OR REPLACE FUNCTION set_in_process(export varchar)
+            },
+            {
+              "name": "Create index for uen from test",
+              "action": " CREATE INDEX IF NOT EXISTS test_uen_pk_idx ON test (uen); "
+            },
+            {
+              "name": "Create index for id from test",
+              "action": " CREATE INDEX IF NOT EXISTS test_id_pk_idx ON test (id); "
+            },
+            {
+              "name": "Call balk with 100 element from test,field uen and export person",
+              "action": " call balk(100, 'test', 'uen', 'person');"
+            },
+            {
+              "name": "Create function set_in_process",
+              "action": "CREATE OR REPLACE FUNCTION set_in_process(export varchar)
                         RETURNS integer
                         LANGUAGE plpgsql AS
                     $$
@@ -98,10 +97,10 @@
                     End
                     $$;"
 
-      },
-      {
-        "name": "Create jsonb for balk with specific start",
-        "action": " CREATE OR REPLACE FUNCTION get_data(beginning integer,export varchar)
+            },
+            {
+              "name": "Create jsonb for balk with specific start",
+              "action": " CREATE OR REPLACE FUNCTION get_data(beginning integer,export varchar)
                         RETURNS table
                                 (
                                     j json
@@ -112,7 +111,6 @@
                     BEGIN
                         RETURN QUERY SELECT json_agg(a)
                                      from (SELECT * FROM additional) a
-
                                      WHERE uen in (
                                          Select uen
                                          from test
@@ -124,10 +122,10 @@
                     END
                     $$;"
 
+            }
+          ]
+        }
       }
-    ]
-  }
-  }
-  }
-  }
+    }
+
 }
