@@ -1,4 +1,5 @@
 {
+"source":{
     "source_export": "person",
     "url_DB": "jdbc:postgresql://localhost:5432/gov_sin_csv",
     "username": "postgres",
@@ -122,4 +123,5 @@
 
       }
     ]
+    }
 }
