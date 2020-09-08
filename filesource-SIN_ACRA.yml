@@ -1,0 +1,127 @@
+{
+  "source": {
+    "source_export": "person",
+    "url_DB": "jdbc:postgresql://localhost:5432/gov_sin_csv",
+    "username": "postgres",
+    "password": "postgres",
+    "fields": [
+      {
+        "name": "Create function size for materialized view",
+        "action": "CREATE OR REPLACE FUNCTION size_materialized(materialized varchar, column_name varchar)
+                    RETURNS int AS
+                $$
+                DECLARE
+                    value integer;
+                BEGIN
+                    EXECUTE FORMAT('SELECT count(*) FROM %s WHERE %s IS NOT NULL;', materialized, column_name) INTO value;
+                    RETURN value;
+                END
+                $$
+                    LANGUAGE plpgsql; "
+      },
+      {
+        "name": "Create procedure for create table statistic and balks",
+        "action": "CREATE OR REPLACE PROCEDURE balk(length integer, materialized varchar, column_name varchar, export varchar)
+                    LANGUAGE plpgsql AS
+                $$
+                DECLARE
+                    value   integer := 0;
+                    contor  bigint  := 1;
+                    average integer := 0;
+                    size    integer := size_materialized(materialized, column_name);
+                BEGIN
+                    CREATE TABLE IF NOT EXISTS statistic
+                    (
+                        id            bigserial,
+                        start         integer,
+                        finish        integer,
+                        status        BOOLEAN,
+                        time          timestamp,
+                        size          integer,
+                        source_export varchar
+                    );
+                    IF (SELECT count(*) from statistic) = 0 then
+                        value = size / length;
+                        FOR contor IN (SELECT * FROM generate_series(1, value))
+                            LOOP
+                                average := length * contor;
+                                INSERT INTO statistic(start, finish, status, time, size, source_export)
+                                VALUES (average - length + 1, average, false, null, length, export);
+                            END LOOP;
+                        IF size % length != 0 THEN
+                            INSERT INTO statistic(start, finish, status, time, size, source_export)
+                            VALUES (average + 1, average + size % length, false, null, size % length, export);
+                        END IF;
+                    END IF;
+                END
+                $$; "
+      },
+      {
+        "name": "Create index for uen from additional",
+        "action": " CREATE INDEX IF NOT EXISTS additional_uen_pk_idx ON additional(uen);"
+      },
+      {
+        "name": "Create materialized view for uen from additional",
+        "action": "CREATE materialized VIEW IF NOT EXISTS test AS
+                                    SELECT ROW_NUMBER() OVER () AS id, uen
+                                    FROM additional
+                                    GROUP BY uen
+                                    order by id;"
+      },
+      {
+        "name": "Create index for uen from test",
+        "action": " CREATE INDEX IF NOT EXISTS test_uen_pk_idx ON test (uen); "
+      },
+      {
+        "name": "Create index for id from test",
+        "action": " CREATE INDEX IF NOT EXISTS test_id_pk_idx ON test (id); "
+      },
+      {
+        "name": "Call balk with 100 element from test,field uen and export person",
+        "action": " call balk(100, 'test', 'uen', 'person');"
+      },
+      {
+        "name": "Create function set_in_process",
+        "action": "CREATE OR REPLACE FUNCTION set_in_process(export varchar)
+                    RETURNS integer
+                    LANGUAGE plpgsql AS
+                $$
+                DECLARE
+                    first integer;
+                Begin
+                    SELECT start from statistic where source_export = export and status = false FOR UPDATE FETCH FIRST ROW ONLY INTO first;
+                    UPDATE statistic set status=null,time=now() where start=first;
+                    return first;
+                End
+                $$;"
+
+      },
+      {
+        "name": "Create jsonb for balk with specific start",
+        "action": " CREATE OR REPLACE FUNCTION get_data(beginning integer,export varchar)
+                    RETURNS table
+                            (
+                                j json
+                            )
+                    LANGUAGE plpgsql
+                AS
+                $$
+                BEGIN
+                    RETURN QUERY SELECT json_agg(a)
+                                 from (SELECT * FROM additional) a
+
+                                 WHERE uen in (
+                                     Select uen
+                                     from test
+                                     where id between beginning AND (Select finish
+                                                                     from statistic
+                                                                     where start = beginning
+                                                                       AND source_export = export));
+                    Update statistic set status = true where start = beginning;
+                END
+                $$;"
+
+      }
+    ]
+  }
+}
