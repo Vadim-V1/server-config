@@ -9,7 +9,7 @@
           "fields": [
             {
               "name": "Create function size for materialized view",
-              "action": "CREATE OR REPLACE FUNCTION size(materialized varchar, column_name varchar)
+              "action": "CREATE OR REPLACE FUNCTION size_materialized(materialized varchar, column_name varchar)
                         RETURNS int AS
                     $$
                     DECLARE
@@ -30,7 +30,7 @@
                         value   integer := 0;
                         contor  bigint  := 1;
                         average integer := 0;
-                        size    integer := size(materialized, column_name);
+                        size    integer := size_materialized(materialized, column_name);
                     BEGIN
                         CREATE TABLE IF NOT EXISTS statistic
                         (
