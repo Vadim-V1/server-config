@@ -110,8 +110,7 @@ AS
 $$
 BEGIN
     RETURN QUERY SELECT json_agg(a)
-                 from (SELECT *)
-                       FROM additional) a
+                 from (SELECT * FROM additional) a
                  WHERE uen in (
                      Select uen
                      from test
