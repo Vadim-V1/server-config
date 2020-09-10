@@ -100,10 +100,13 @@
             },
             {
               "name": "Create jsonb for balk with specific start",
-              "action": " create function get_data(beginning integer, export character varying)
-    returns TABLE(j json)
-    language plpgsql
-as
+              "action": "CREATE OR REPLACE FUNCTION get_data(beginning integer, export varchar)
+    RETURNS table
+            (
+                j json
+            )
+    LANGUAGE plpgsql
+AS
 $$
 BEGIN
     RETURN QUERY SELECT json_agg(a)
@@ -122,9 +125,7 @@ BEGIN
                                                        AND source_export = export));
     Update statistic set status = true where start = beginning;
 END
-$$;
-
-alter function get_data(integer, varchar) owner to postgres;
+$$;"
 
             }
           ]
