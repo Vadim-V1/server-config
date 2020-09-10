@@ -110,11 +110,7 @@ AS
 $$
 BEGIN
     RETURN QUERY SELECT json_agg(a)
-                 from (SELECT *,
-                              (SELECT json_build_object('building_name', building_name,
-                                                        'street_name', street_name,
-                                                        'postal_code', postal_code)
-                              )
+                 from (SELECT *)
                        FROM additional) a
                  WHERE uen in (
                      Select uen
