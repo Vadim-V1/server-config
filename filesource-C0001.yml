@@ -80,7 +80,7 @@
             },
             {
               "name": "Call balk with 100 element from test,field uen and export person",
-              "action": " call balk(100, 'test', 'id', 'person');"
+              "action": " call balk(100, 'test', 'uen', 'person');"
             },
             {
               "name": "Create function set_in_process",
