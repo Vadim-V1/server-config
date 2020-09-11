@@ -100,27 +100,32 @@
             },
             {
               "name": "Create jsonb for balk with specific start",
-              "action": " CREATE OR REPLACE FUNCTION get_data(beginning integer,export varchar)
-                        RETURNS table
-                                (
-                                    j json
-                                )
-                        LANGUAGE plpgsql
-                    AS
-                    $$
-                    BEGIN
-                        RETURN QUERY SELECT json_agg(a)
-                                     from (SELECT * FROM additional) a
-                                     WHERE uen in (
-                                         Select uen
-                                         from test
-                                         where id between beginning AND (Select finish
-                                                                         from statistic
-                                                                         where start = beginning
-                                                                           AND source_export = export));
-                        Update statistic set status = true where start = beginning;
-                    END
-                    $$;"
+              "action": " CREATE OR REPLACE FUNCTION get_data(beginning integer, export varchar)
+    RETURNS table
+            (
+                j json
+            )
+    LANGUAGE plpgsql
+AS
+$$
+BEGIN
+    RETURN QUERY SELECT json_agg(a)
+                 from (SELECT *,
+                              (SELECT json_build_object('building_name', building_name,
+                                                        'street_name', street_name,
+                                                        'postal_code', postal_code)
+                              )
+                       FROM additional) a
+                 WHERE uen in (
+                     Select uen
+                     from test
+                     where id between beginning AND (Select finish
+                                                     from statistic
+                                                     where start = beginning
+                                                       AND source_export = export));
+    Update statistic set status = true where start = beginning;
+END
+$$;"
 
             }
           ]
