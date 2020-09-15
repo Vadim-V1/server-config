@@ -82,6 +82,30 @@
               "name": "Call balk with 100 element from test,field uen and export person",
               "action": " call balk(100, 'test', 'uen', 'person');"
             },
+             {
+              "name": "Create table export_statistic",
+              "action": " Create table if NOT EXISTS export_statistic
+(
+    id      bigserial,
+    error   json,
+    number_of_incorrect_lines integer,
+    bulk_id integer PRIMARY KEY REFERENCES statistic (id)
+);"
+            },
+              {
+              "name": "Create procedure get_incorect_data",
+              "action": " CREATE OR REPLACE PROCEDURE get_incorrect_data(beginning integer, arr varchar[])
+    language plpgsql
+AS
+$$
+BEGIN
+    insert into export_statistic(error, bulk_id,number_of_incorrect_lines)
+    values ((SELECT json_agg(a) from (SELECT * FROM additional) a where uen = any (arr)),
+            (Select id from statistic where start = beginning),(Select array_length(arr,1))) ;
+
+END
+$$;"
+            },
             {
               "name": "Create function set_in_process",
               "action": "CREATE OR REPLACE FUNCTION set_in_process(export varchar)
