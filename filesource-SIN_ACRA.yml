@@ -34,7 +34,7 @@
                     BEGIN
                         CREATE TABLE IF NOT EXISTS statistic
                         (
-                            id            bigserial,
+                            id            bigserial PRIMARY KEY,
                             start         integer,
                             finish        integer,
                             status        BOOLEAN,
