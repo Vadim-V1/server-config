@@ -82,28 +82,50 @@
               "name": "Call balk with 100 element from test,field uen and export person",
               "action": " call balk(100, 'test', 'uen', 'person');"
             },
-              {
-              "name": "Create table export_statistic",
-              "action": " Create table if NOT EXISTS export_statistic
-(
-    id      bigserial,
-    error   json,
-    number_of_incorrect_lines integer,
-    bulk_id integer PRIMARY KEY REFERENCES statistic (id)
-);"
+             {
+              "name": "Create function get_status_export",
+              "action": "CREATE OR REPLACE FUNCTION get_status_export()
+    returns boolean
+language plpgsql
+as
+    $$
+    declare
+        status bool;
+    begin
+       SELECT status_export from session into status;
+       return status;
+    end;
+    $$;"
             },
               {
-              "name": "Create procedure get_incorect_data",
-              "action": " CREATE OR REPLACE PROCEDURE get_incorrect_data(beginning integer, arr varchar[])
+              "name": "Create procedure create_export_statistic",
+              "action": "CREATE OR REPLACE PROCEDURE create_export_statistic(arr varchar[])
     language plpgsql
-AS
+as
 $$
 BEGIN
-    insert into export_statistic(error, bulk_id,number_of_incorrect_lines)
-    values ((SELECT json_agg(a) from (SELECT * FROM additional) a where uen = any (arr)),
-            (Select id from statistic where start = beginning),(Select array_length(arr,1))) ;
+    CREATE TABLE IF NOT EXISTS export_statistic
+    (
+        id                      BIGSERIAL PRIMARY KEY,
+        size                    bigint,
+        started_export          timestamp,
+        finished_export         timestamp,
+        exporting_time          varchar,
+        number_of_correct_lines bigint,
+        number_of_wrong_lines   bigint,
+        wrong_lines             jsonb
+    );
 
-END
+    insert into export(size, started_export, finished_export, exporting_time, number_of_correct_lines,
+                       number_of_wrong_lines, wrong_lines)
+    VALUES ((Select count(*) from additional), (Select session_start_export from session),
+            (Select session_finish_export from session), (Select session_time_export from session),
+            ((Select count(*) from additional) - (Select array_length(arr, 1))), (Select array_length(arr, 1)),
+            (SELECT json_agg(a)
+             from (SELECT *
+                   FROM additional) a
+             where uen = any(arr[0:1000])));
+end;
 $$;"
             },
             {
