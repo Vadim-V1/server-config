@@ -145,7 +145,7 @@ BEGIN
         wrong_lines             jsonb
     );
 
-    insert into export(size, started_export, finished_export, exporting_time, number_of_correct_lines,
+    insert into export_statistic(size, started_export, finished_export, exporting_time, number_of_correct_lines,
                        number_of_wrong_lines, wrong_lines)
     VALUES ((Select count(*) from additional), (Select session_start_export from session),
             (Select session_finish_export from session), (Select session_time_export from session),
