@@ -78,6 +78,35 @@
               "name": "Create index for id from test",
               "action": " CREATE INDEX IF NOT EXISTS test_id_pk_idx ON test (id); "
             },
+                    {
+              "name": "Create PROCEDURE start_export()",
+              "action": " CREATE OR REPLACE PROCEDURE start_export()
+    language plpgsql
+as
+$$
+BEGIN
+    update session
+    set session_start_export = now()
+    where (Select session_id from profiles where status = true) = id
+      and status_import = true;
+end;
+$$; "
+            },
+                 {
+              "name": "Create PROCEDURE finish_export()",
+              "action": " CREATE OR REPLACE PROCEDURE finish_export()
+    language plpgsql
+as
+$$
+BEGIN
+    update session
+    set status_export= true,
+        session_finish_export=now(),
+        session_time_export = now() - (Select session_start_export from session)
+    where session_start_export is not null;
+end;
+$$; "
+            },
             {
               "name": "Call balk with 100 element from test,field uen and export person",
               "action": " call balk(100, 'test', 'uen', 'person');"
