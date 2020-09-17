@@ -109,7 +109,7 @@ $$; "
             },
             {
               "name": "Call balk with 100 element from test,field uen and export person",
-              "action": " call balk(100, 'test', 'uen', 'person');"
+              "action": " call balk(5000, 'test', 'uen', 'person');"
             },
              {
               "name": "Create function get_status_export",
