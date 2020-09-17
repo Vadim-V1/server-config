@@ -132,6 +132,9 @@ as
     language plpgsql
 as
 $$
+declare
+    count bigint := (Select count(*)
+                     from additional);
 BEGIN
     CREATE TABLE IF NOT EXISTS export_statistic
     (
@@ -147,9 +150,9 @@ BEGIN
 
     insert into export_statistic(size, started_export, finished_export, exporting_time, number_of_correct_lines,
                                  number_of_wrong_lines, wrong_lines)
-    VALUES ((Select count(*) from additional), (Select session_start_export from session),
+    VALUES (count, (Select session_start_export from session),
             (Select session_finish_export from session), (Select session_time_export from session),
-            ((Select count(*) from additional) - (Select array_length(arr, 1))), (Select array_length(arr, 1)),
+            (count - (Select array_length(arr, 1))), (Select array_length(arr, 1)),
             (Select array_to_json(arr)));
 end;
 $$;"
