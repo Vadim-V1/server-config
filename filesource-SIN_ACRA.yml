@@ -142,7 +142,7 @@ BEGIN
         exporting_time          varchar,
         number_of_correct_lines bigint,
         number_of_wrong_lines   bigint,
-        wrong_lines             varchar[]
+        wrong_lines             json
     );
 
     insert into export_statistic(size, started_export, finished_export, exporting_time, number_of_correct_lines,
@@ -150,7 +150,7 @@ BEGIN
     VALUES ((Select count(*) from additional), (Select session_start_export from session),
             (Select session_finish_export from session), (Select session_time_export from session),
             ((Select count(*) from additional) - (Select array_length(arr, 1))), (Select array_length(arr, 1)),
-            arr);
+            (Select array_to_json(arr)));
 end;
 $$;"
             },
