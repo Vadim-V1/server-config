@@ -9,13 +9,13 @@
           "fields": [
             {
               "name": "Create function size for materialized view",
-              "action": "CREATE OR REPLACE FUNCTION size_materialized(materialized varchar, column_name varchar)
+              "action": "CREATE OR REPLACE FUNCTION size_materialized(materialized varchar)
                         RETURNS int AS
                     $$
                     DECLARE
                         value integer;
                     BEGIN
-                        EXECUTE FORMAT('SELECT count(*) FROM %s WHERE %s IS NOT NULL;', materialized, column_name) INTO value;
+                        EXECUTE FORMAT('SELECT count(*) FROM %s', materialized) INTO value;
                         RETURN value;
                     END
                     $$
@@ -23,14 +23,14 @@
             },
             {
               "name": "Create procedure for create table statistic and balks",
-              "action": "CREATE OR REPLACE PROCEDURE balk(length integer, materialized varchar, column_name varchar, export varchar)
+              "action": "CREATE OR REPLACE PROCEDURE balk(length integer, materialized varchar, export varchar)
                         LANGUAGE plpgsql AS
                     $$
                     DECLARE
                         value   integer := 0;
                         contor  bigint  := 1;
                         average integer := 0;
-                        size    integer := size_materialized(materialized, column_name);
+                        size    integer := size_materialized(materialized);
                     BEGIN
                         CREATE TABLE IF NOT EXISTS statistic
                         (
@@ -109,7 +109,7 @@ $$; "
             },
             {
               "name": "Call balk with 100 element from test,field uen and export person",
-              "action": " call balk(5000, 'test', 'uen', 'person');"
+              "action": " call balk(5000, 'test', 'person');"
             },
              {
               "name": "Create function get_status_export",
