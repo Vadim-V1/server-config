@@ -23,7 +23,7 @@
             },
             {
               "name": "Create procedure for create table statistic and balks",
-              "action": "CREATE OR REPLACE PROCEDURE balk(length integer, materialized varchar, export varchar)
+              "action": "CREATE OR REPLACE PROCEDURE bulk(length integer, materialized varchar, export varchar)
                         LANGUAGE plpgsql AS
                     $$
                     DECLARE
@@ -108,8 +108,8 @@ end;
 $$; "
             },
             {
-              "name": "Call balk with 100 element from test,field uen and export person",
-              "action": " call balk(5000, 'test', 'person');"
+              "name": "Call bulk with 100 element from test and export person",
+              "action": " call bulk(5000, 'test', 'person');"
             },
              {
               "name": "Create function get_status_export",
