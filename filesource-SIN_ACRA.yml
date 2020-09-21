@@ -8,20 +8,6 @@
           "password": "postgres",
           "fields": [
             {
-              "name": "Create function size for materialized view",
-              "action": "CREATE OR REPLACE FUNCTION size_materialized(materialized varchar)
-                        RETURNS int AS
-                    $$
-                    DECLARE
-                        value integer;
-                    BEGIN
-                        EXECUTE FORMAT('SELECT count(*) FROM %s', materialized) INTO value;
-                        RETURN value;
-                    END
-                    $$
-                        LANGUAGE plpgsql; "
-            },
-            {
               "name": "Create procedure for create table statistic and balks",
               "action": "CREATE OR REPLACE PROCEDURE bulk(length integer, materialized varchar, export varchar)
                         LANGUAGE plpgsql AS
@@ -30,7 +16,7 @@
                         value   integer := 0;
                         contor  bigint  := 1;
                         average integer := 0;
-                        size    integer := size_materialized(materialized);
+                        size    integer;
                     BEGIN
                         CREATE TABLE IF NOT EXISTS statistic
                         (
@@ -43,6 +29,7 @@
                             source_export varchar
                         );
                         IF (SELECT count(*) from statistic) = 0 then
+                         EXECUTE FORMAT('SELECT count(*) FROM %s', materialized) INTO size;
                             value = size / length;
                             FOR contor IN (SELECT * FROM generate_series(1, value))
                                 LOOP
