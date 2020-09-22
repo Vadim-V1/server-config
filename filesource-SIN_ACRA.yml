@@ -1,298 +1,298 @@
 {
-    "source_config": {
-        "source_url": "",
-        "source_type": {
-            "SIN_ACRA": {
-                "source_type": "SIN_ACRA",
-                "source_format": "csv",
-                "fields_separator": ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)",
-                "charset": "Cp1252",
-                "first_line_pos": 1,
-                "bid_definition": {
-                    "version": 1,
-                    "type": 1,
-                    "tag": 1,
-                    "zone": "SIN"
-                },
-                "date_formats": [
-                    "yyyy-MM-dd'T'HH:mm:ss",
-                    "yyyy-MM-dd"
-                ],
-                "fields": [
-                    {
-                        "name": "business_constitution_description",
-                        "index": 0,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "primary_ssic_description",
-                        "index": 1,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "primary_user_described_activity",
-                        "index": 2,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "street_name",
-                        "index": 3,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "entity_status_description",
-                        "index": 4,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "annual_return_date",
-                        "index": 5,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|T([^T]*)",
-                        "type": "date"
-                    },
-                    {
-                        "name": "postal_code",
-                        "index": 6,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital10_preference",
-                        "index": 7,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "entity_name",
-                        "index": 8,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital2_others",
-                        "index": 9,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "name_of_audit_firm3",
-                        "index": 10,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "address_type",
-                        "index": 11,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital9_currency",
-                        "index": 12,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital8_ordinary",
-                        "index": 13,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital6_others",
-                        "index": 14,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital6_ordinary",
-                        "index": 15,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "level_no",
-                        "index": 16,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital9_others",
-                        "index": 17,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "former_entity_name9",
-                        "index": 18,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital7_currency",
-                        "index": 19,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital6_preference",
-                        "index": 20,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital4_currency",
-                        "index": 21,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "secondary_ssic_code",
-                        "index": 22,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital7_preference",
-                        "index": 23,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital1_preference",
-                        "index": 24,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital2_preference",
-                        "index": 25,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "uen",
-                        "index": 26,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    }
-                ],
-                "table_name": "additional",
-                "table_columns": [
-                    "name",
-                    "raw_code",
-                    "sic_type",
-                    "raw_value",
-                    "country_code",
-                    "uuid",
-                    "faxes",
-                    "emails",
-                    "phones",
-                    "zip",
-                    "city",
-                    "address1",
-                    "address2",
-                    "country_region",
-                    "country",
-                    "websites",
-                    "additional",
-                    "company_uuid",
-                    "coordinate_lat",
-                    "coordinate_long",
-                    "legal_form",
-                    "description",
-                    "updated_date",
-                    "company_status",
-                    "employees_number",
-                    "incorporation_date",
-                    "registration_number",
-                    "file_source_id",
-                    "created"
-                ],
-                "before_process": {
-                    "0": {
-                        "name": "last_step",
-                        "last_step": true
-                    },
-                    "1": {
-                        "name": "check if target exist",
-                        "action": "SELECT 1 FROM pg_database WHERE datname = 'gov_sin_csv'",
-                        "expected_result": 1,
-                        "true_next_step": 3,
-                        "false_next_step": 2,
-                        "query_type": "executeQuery"
-                    },
-                    "2": {
-                        "name": "create target",
-                        "action": "CREATE DATABASE gov_sin_csv",
-                        "expected_result": 0,
-                        "true_next_step": 3,
-                        "false_next_step": 3,
-                        "query_type": "executeUpdate"
-                    },
-                    "3": {
-                        "name": "switch database",
-                        "action": "gov_sin_csv",
-                        "expected_result": 0,
-                        "true_next_step": 0,
-                        "false_next_step": 0,
-                        "query_type": "switchDB"
-                    }
-                },
-                "before_read": {
-                    "0": {
-                        "name": "last_step",
-                        "last_step": true
-                    },
-                    "1": {
-                        "name": "switch database",
-                        "action": "gov_sin_csv",
-                        "expected_result": 0,
-                        "true_next_step": 2,
-                        "false_next_step": 2,
-                        "query_type": "switchDB"
-                    },
-                    "2": {
-                        "name": "create table import_statistics",
-                        "action": "create table if not exists import_statistics\r\n(\r\n    id                      bigserial    not null\r\n        constraint import_statistics_pkey primary key,\r\n    file_name               varchar(200) not null\r\n        constraint import_statistics_file_name_key unique,\r\n    file_size               bigint       not null,\r\n    status                  varchar(50)  not null,\r\n    started_reading         timestamp with time zone default CURRENT_TIMESTAMP,\r\n    finished_reading        timestamp with time zone,\r\n    reading_time            varchar,\r\n    number_of_wrong_lines   bigint,\r\n    number_of_correct_lines bigint,\r\n    wrong_lines             jsonb\r\n);",
-                        "expected_result": 0,
-                        "true_next_step": 3,
-                        "false_next_step": 3,
-                        "query_type": "executeUpdate"
-                    },
-                    "3": {
-                        "name": "create table if not exists",
-                        "action": "CREATE TABLE IF NOT EXISTS additional\r\n(\r\n    id                  BIGSERIAL,\r\n    name                varchar,\r\n    raw_code            varchar,\r\n    sic_type            varchar,\r\n    raw_value           varchar,\r\n    country_code        varchar,\r\n    uuid                varchar,\r\n    faxes               varchar,\r\n    emails              varchar,\r\n    phones              varchar,\r\n    zip                 varchar,\r\n    city                varchar,\r\n    address1            varchar,\r\n    address2            varchar,\r\n    country_region      varchar,\r\n    country             varchar,\r\n    websites            varchar,\r\n    additional          varchar,\r\n    company_uuid        varchar,\r\n    coordinate_lat      varchar,\r\n    coordinate_long     varchar,\r\n    legal_form          varchar,\r\n    description         varchar,\r\n    updated_date        varchar,\r\n    company_status      varchar,\r\n    employees_number    varchar,\r\n    incorporation_date  integer,\r\n    registration_number varchar,\r\n    file_source_id      integer,\r\n    created             TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP\r\n);",
-                        "expected_result": 0,
-                        "true_next_step": 0,
-                        "false_next_step": 0,
-                        "query_type": "executeUpdate"
-                    }
-                },
-                "after_read": {
-                    "0": {
-                        "name": "last_step",
-                        "last_step": true
-                    },
-                    "1": {
-                        "name": "delete duplicates",
-                        "action": "DELETE\r\nFROM additional\r\nWHERE id IN (SELECT id\r\n             FROM (SELECT id,\r\n                          ROW_NUMBER()\r\n                          OVER ( PARTITION BY name,raw_code,\r\nsic_type        ,\r\nraw_value       ,\r\ncountry_code    ,\r\nuuid            ,\r\nfaxes           ,\r\nemails          ,\r\nphones          ,\r\nzip             ,\r\ncity            ,\r\naddress1        ,\r\naddress2        ,\r\ncountry_region  ,\r\ncountry         ,\r\nwebsites        ,\r\nadditional      ,\r\ncompany_uuid    ,\r\ncoordinate_lat  ,\r\ncoordinate_long ,\r\nlegal_form      ,\r\ndescription     ,\r\nupdated_date    ,\r\ncompany_status  ,\r\nemployees_number,\r\nincorporation_date,\r\nregistration_number ) AS row_num\r\n                   FROM additional) t\r\n             WHERE t.row_num > 1);",
-                        "expected_result": 0,
-                        "true_next_step": 0,
-                        "false_next_step": 0,
-                        "query_type": "executeUpdate"
-                    }
-                },
-                "session_type": "AUTOMATIC",
-                "skipped_files": [
-                    
-                ]
-            }
-        }
+  "source_config": {
+    "source_url": "",
+    "source_type": {
+      "SIN_ACRA": {
+        "source_type": "SIN_ACRA",
+        "source_format": "csv",
+        "fields_separator": ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)",
+        "charset": "Cp1252",
+        "first_line_pos": 1,
+        "bid_definition": {
+          "version": 1,
+          "type": 1,
+          "tag": 1,
+          "zone": "SIN"
+        },
+        "date_formats": [
+            "yyyy-MM-dd'T'HH:mm:ss",
+            "yyyy-MM-dd"
+        ],
+        "fields": [
+          {
+            "name": "business_constitution_description",
+            "index": 0,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "primary_ssic_description",
+            "index": 1,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "primary_user_described_activity",
+            "index": 2,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "street_name",
+            "index": 3,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "entity_status_description",
+            "index": 4,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "annual_return_date",
+            "index": 5,
+            "filter": "(?:^|\\W)na(?:$|\\W)|T([^T]*)",
+            "type": "date"
+          },
+          {
+            "name": "postal_code",
+            "index": 6,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "paid_up_capital10_preference",
+            "index": 7,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "entity_name",
+            "index": 8,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "paid_up_capital2_others",
+            "index": 9,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "name_of_audit_firm3",
+            "index": 10,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "address_type",
+            "index": 11,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "paid_up_capital9_currency",
+            "index": 12,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "paid_up_capital8_ordinary",
+            "index": 13,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "paid_up_capital6_others",
+            "index": 14,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "paid_up_capital6_ordinary",
+            "index": 15,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "level_no",
+            "index": 16,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "paid_up_capital9_others",
+            "index": 17,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "former_entity_name9",
+            "index": 18,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "paid_up_capital7_currency",
+            "index": 19,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "paid_up_capital6_preference",
+            "index": 20,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "paid_up_capital4_currency",
+            "index": 21,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "secondary_ssic_code",
+            "index": 22,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "paid_up_capital7_preference",
+            "index": 23,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "paid_up_capital1_preference",
+            "index": 24,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "paid_up_capital2_preference",
+            "index": 25,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          },
+          {
+            "name": "uen",
+            "index": 26,
+            "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
+            "type": "string"
+          }
+        ],
+        "table_name": "additional",
+        "table_columns": [
+            "name",
+            "raw_code",
+            "sic_type",
+            "raw_value",
+            "country_code",
+            "uuid",
+            "fax",
+            "email",
+            "phone",
+            "zip",
+            "city",
+            "address1",
+            "address2",
+            "country_region",
+            "country",
+            "website",
+            "additional",
+            "company_uuid",
+            "coordinate_lat",
+            "coordinate_long",
+            "legal_form",
+            "description",
+            "updated_date",
+            "company_status",
+            "employees_number",
+            "incorporation_date",
+            "registration_number",
+            "file_source_id",
+            "created"
+        ],
+        "before_process": {
+          "0": {
+            "name": "last_step",
+            "last_step": true
+          },
+          "1": {
+            "name": "check if target exist",
+            "action": "SELECT 1 FROM pg_database WHERE datname = 'gov_sin_csv'",
+            "expected_result": 1,
+            "true_next_step": 3,
+            "false_next_step": 2,
+            "query_type": "executeQuery"
+          },
+          "2": {
+            "name": "create target",
+            "action": "CREATE DATABASE gov_sin_csv",
+            "expected_result": 0,
+            "true_next_step": 3,
+            "false_next_step": 3,
+            "query_type": "executeUpdate"
+          },
+          "3": {
+            "name": "switch database",
+            "action": "gov_sin_csv",
+            "expected_result": 0,
+            "true_next_step": 0,
+            "false_next_step": 0,
+            "query_type": "switchDB"
+          }
+        },
+        "before_read": {
+          "0": {
+            "name": "last_step",
+            "last_step": true
+          },
+          "1": {
+            "name": "switch database",
+            "action": "gov_sin_csv",
+            "expected_result": 0,
+            "true_next_step": 2,
+            "false_next_step": 2,
+            "query_type": "switchDB"
+          },
+          "2": {
+            "name": "create table import_statistics",
+            "action": "create table if not exists import_statistics\r\n(\r\n    id                      bigserial    not null\r\n        constraint import_statistics_pkey primary key,\r\n    file_name               varchar(200) not null\r\n        constraint import_statistics_file_name_key unique,\r\n    file_size               bigint       not null,\r\n    status                  varchar(50)  not null,\r\n    started_reading         timestamp with time zone default CURRENT_TIMESTAMP,\r\n    finished_reading        timestamp with time zone,\r\n    reading_time            varchar,\r\n    number_of_wrong_lines   bigint,\r\n    number_of_correct_lines bigint,\r\n    wrong_lines             jsonb\r\n);",
+            "expected_result": 0,
+            "true_next_step": 3,
+            "false_next_step": 3,
+            "query_type": "executeUpdate"
+          },
+          "3": {
+            "name": "create table if not exists",
+            "action": "CREATE TABLE IF NOT EXISTS additional\r\n(\r\n    id                  BIGSERIAL,\r\n    name                varchar,\r\n    raw_code            varchar,\r\n    sic_type            varchar,\r\n    raw_value           varchar,\r\n    country_code        varchar,\r\n    uuid                varchar,\r\n    fax                 varchar,\r\n    email               varchar,\r\n    phone               varchar,\r\n    zip                 varchar,\r\n    city                varchar,\r\n    address1            varchar,\r\n    address2            varchar,\r\n    country_region      varchar,\r\n    country             varchar,\r\n    website            varchar,\r\n    additional          varchar,\r\n    company_uuid        varchar,\r\n    coordinate_lat      varchar,\r\n    coordinate_long     varchar,\r\n    legal_form          varchar,\r\n    description         varchar,\r\n    updated_date        varchar,\r\n    company_status      varchar,\r\n    employees_number    varchar,\r\n    incorporation_date  integer,\r\n    registration_number varchar,\r\n    file_source_id      integer,\r\n    created             TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP\r\n);",
+            "expected_result": 0,
+            "true_next_step": 0,
+            "false_next_step": 0,
+            "query_type": "executeUpdate"
+          }
+        },
+        "after_read": {
+          "0": {
+            "name": "last_step",
+            "last_step": true
+          },
+          "1": {
+            "name": "delete duplicates",
+            "action": "DELETE\r\nFROM additional\r\nWHERE id IN (SELECT id\r\n             FROM (SELECT id,\r\n                          ROW_NUMBER()\r\n                          OVER ( PARTITION BY name,raw_code,\r\nsic_type        ,\r\nraw_value       ,\r\ncountry_code    ,\r\nuuid            ,\r\nfax          ,\r\nemail          ,\r\nphone          ,\r\nzip             ,\r\ncity            ,\r\naddress1        ,\r\naddress2        ,\r\ncountry_region  ,\r\ncountry         ,\r\nwebsite        ,\r\nadditional      ,\r\ncompany_uuid    ,\r\ncoordinate_lat  ,\r\ncoordinate_long ,\r\nlegal_form      ,\r\ndescription     ,\r\nupdated_date    ,\r\ncompany_status  ,\r\nemployees_number,\r\nincorporation_date,\r\nregistration_number ) AS row_num\r\n                   FROM additional) t\r\n             WHERE t.row_num > 1);",
+            "expected_result": 0,
+            "true_next_step": 0,
+            "false_next_step": 0,
+            "query_type": "executeUpdate"
+          }
+        },
+        "session_type": "AUTOMATIC",
+        "skipped_files": [
+
+        ]
+      }
     }
+  }
 }
