@@ -9,14 +9,14 @@
                 "charset": "Cp1252",
                 "first_line_pos": 1,
                 "bid_definition": {
-                    "version": "1",
-                    "type": "1",
-                    "tag": "1",
+                    "version": 1,
+                    "type": 1,
+                    "tag": 1,
                     "zone": "SIN"
                 },
                 "date_formats": [
-                        "yyyy-MM-dd'T'HH:mm:ss",
-                        "yyyy-MM-dd"
+                    "yyyy-MM-dd'T'HH:mm:ss",
+                    "yyyy-MM-dd"
                 ],
                 "fields": [
                     {
@@ -52,7 +52,7 @@
                     {
                         "name": "annual_return_date",
                         "index": 5,
-                        "filter":"(?:^|\\W)na(?:$|\\W)|T([^T]*)",
+                        "filter": "(?:^|\\W)na(?:$|\\W)|T([^T]*)",
                         "type": "date"
                     },
                     {
@@ -184,7 +184,7 @@
                     {
                         "name": "uen_issue_date",
                         "index": 27,
-                        "filter":"(?:^|\\W)na(?:$|\\W)|T([^T]*)",
+                        "filter": "(?:^|\\W)na(?:$|\\W)|T([^T]*)",
                         "type": "date"
                     },
                     {
@@ -198,490 +198,40 @@
                         "index": 29,
                         "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
                         "type": "string"
-                    },
-                    {
-                        "name": "building_name",
-                        "index": 30,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "no_of_charges",
-                        "index": 31,
-                        "filter": "[na]",
-                        "type": "int"
-                    },
-                    {
-                        "name": "paid_up_capital8_currency",
-                        "index": 32,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital2_ordinary",
-                        "index": 33,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital3_others",
-                        "index": 34,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital4_others",
-                        "index": 35,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "secondary_ssic_description",
-                        "index": 36,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital10_currency",
-                        "index": 37,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital8_others",
-                        "index": 38,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital1_others",
-                        "index": 39,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital3_currency",
-                        "index": 40,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "block",
-                        "index": 41,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "other_address_line2",
-                        "index": 42,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "other_address_line1",
-                        "index": 43,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "account_due_date",
-                        "index": 44,
-                        "filter":"(?:^|\\W)na(?:$|\\W)|T([^T]*)",
-                        "type": "date"
-                    },
-                    {
-                        "name": "paid_up_capital7_ordinary",
-                        "index": 45,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "former_entity_name8",
-                        "index": 46,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital5_preference",
-                        "index": 47,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "former_entity_name2",
-                        "index": 48,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital3_preference",
-                        "index": 49,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "former_entity_name1",
-                        "index": 50,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "former_entity_name6",
-                        "index": 51,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "former_entity_name7",
-                        "index": 52,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "former_entity_name4",
-                        "index": 53,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "former_entity_name5",
-                        "index": 54,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital4_ordinary",
-                        "index": 55,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "secondary_user_described_activity",
-                        "index": 56,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "issuance_agency_id",
-                        "index": 57,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "former_entity_name14",
-                        "index": 58,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "former_entity_name15",
-                        "index": 59,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "former_entity_name10",
-                        "index": 60,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "registration_incorporation_date",
-                        "index": 61,
-                        "filter":"(?:^|\\W)na(?:$|\\W)|T([^T]*)",
-                        "type": "date"
-                    },
-                    {
-                        "name": "former_entity_name12",
-                        "index": 62,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "former_entity_name13",
-                        "index": 63,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital2_currency",
-                        "index": 64,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital1_currency",
-                        "index": 65,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital8_preference",
-                        "index": 66,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "primary_ssic_code",
-                        "index": 67,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "name_of_audit_firm5",
-                        "index": 68,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "name_of_audit_firm4",
-                        "index": 69,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "name_of_audit_firm1",
-                        "index": 70,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paf_constitution_description",
-                        "index": 71,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "name_of_audit_firm2",
-                        "index": 72,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital9_ordinary",
-                        "index": 73,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital4_preference",
-                        "index": 74,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "former_entity_name11",
-                        "index": 75,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "unit_no",
-                        "index": 76,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital5_others",
-                        "index": 77,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital6_currency",
-                        "index": 78,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital5_currency",
-                        "index": 79,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "company_type_description",
-                        "index": 80,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "uen_of_audit_firm3",
-                        "index": 81,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "uen_of_audit_firm2",
-                        "index": 82,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "uen_of_audit_firm1",
-                        "index": 83,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital10_ordinary",
-                        "index": 84,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital10_others",
-                        "index": 85,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "uen_of_audit_firm4",
-                        "index": 86,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital7_others",
-                        "index": 87,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "uen_of_audit_firm5",
-                        "index": 88,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "entity_type_description",
-                        "index": 89,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital3_ordinary",
-                        "index": 90,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital5_ordinary",
-                        "index": 91,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital9_preference",
-                        "index": 92,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
-                    },
-                    {
-                        "name": "paid_up_capital1_ordinary",
-                        "index": 93,
-                        "filter": "(?:^|\\W)na(?:$|\\W)|[\\\\\b\"\n|]",
-                        "type": "string"
                     }
                 ],
                 "table_name": "additional",
                 "table_columns": [
-                    "business_constitution_description",
-                    "primary_ssic_description",
-                    "primary_user_described_activity",
-                    "street_name",
-                    "entity_status_description",
-                    "annual_return_date",
-                    "postal_code",
-                    "paid_up_capital10_preference",
-                    "entity_name",
-                    "paid_up_capital2_others",
-                    "name_of_audit_firm3",
-                    "address_type",
-                    "paid_up_capital9_currency",
-                    "paid_up_capital8_ordinary",
-                    "paid_up_capital6_others",
-                    "paid_up_capital6_ordinary",
-                    "level_no",
-                    "paid_up_capital9_others",
-                    "former_entity_name9",
-                    "paid_up_capital7_currency",
-                    "paid_up_capital6_preference",
-                    "paid_up_capital4_currency",
-                    "secondary_ssic_code",
-                    "paid_up_capital7_preference",
-                    "paid_up_capital1_preference",
-                    "paid_up_capital2_preference",
-                    "uen",
-                    "uen_issue_date",
-                    "no_of_officers",
-                    "former_entity_name3",
-                    "building_name",
-                    "no_of_charges",
-                    "paid_up_capital8_currency",
-                    "paid_up_capital2_ordinary",
-                    "paid_up_capital3_others",
-                    "paid_up_capital4_others",
-                    "secondary_ssic_description",
-                    "paid_up_capital10_currency",
-                    "paid_up_capital8_others",
-                    "paid_up_capital1_others",
-                    "paid_up_capital3_currency",
-                    "block",
-                    "other_address_line2",
-                    "other_address_line1",
-                    "account_due_date",
-                    "paid_up_capital7_ordinary",
-                    "former_entity_name8",
-                    "paid_up_capital5_preference",
-                    "former_entity_name2",
-                    "paid_up_capital3_preference",
-                    "former_entity_name1",
-                    "former_entity_name6",
-                    "former_entity_name7",
-                    "former_entity_name4",
-                    "former_entity_name5",
-                    "paid_up_capital4_ordinary",
-                    "secondary_user_described_activity",
-                    "issuance_agency_id",
-                    "former_entity_name14",
-                    "former_entity_name15",
-                    "former_entity_name10",
-                    "registration_incorporation_date",
-                    "former_entity_name12",
-                    "former_entity_name13",
-                    "paid_up_capital2_currency",
-                    "paid_up_capital1_currency",
-                    "paid_up_capital8_preference",
-                    "primary_ssic_code",
-                    "name_of_audit_firm5",
-                    "name_of_audit_firm4",
-                    "name_of_audit_firm1",
-                    "paf_constitution_description",
-                    "name_of_audit_firm2",
-                    "paid_up_capital9_ordinary",
-                    "paid_up_capital4_preference",
-                    "former_entity_name11",
-                    "unit_no",
-                    "paid_up_capital5_others",
-                    "paid_up_capital6_currency",
-                    "paid_up_capital5_currency",
-                    "company_type_description",
-                    "uen_of_audit_firm3",
-                    "uen_of_audit_firm2",
-                    "uen_of_audit_firm1",
-                    "paid_up_capital10_ordinary",
-                    "paid_up_capital10_others",
-                    "uen_of_audit_firm4",
-                    "paid_up_capital7_others",
-                    "uen_of_audit_firm5",
-                    "entity_type_description",
-                    "paid_up_capital3_ordinary",
-                    "paid_up_capital5_ordinary",
-                    "paid_up_capital9_preference",
-                    "paid_up_capital1_ordinary",
-                    "date_of_source",
+                    "id"
+                    "name"
+                    "raw_code"
+                    "sic_type"
+                    "raw_value"
+                    "country_code"
+                    "uuid"
+                    "faxes"
+                    "emails"
+                    "phones"
+                    "zip"
+                    "city"
+                    "address1"
+                    "address2"
+                    "country_region"
+                    "country"
+                    "websites"
+                    "additional"
+                    "company_uuid"
+                    "coordinate_lat"
+                    "coordinate_long"
+                    "legal_form"
+                    "description"
+                    "updated_date"
+                    "company_status"
+                    "employees_number"
+                    "incorporation_date"
+                    "registration_number"
                     "file_source_id"
+                    "created"
                 ],
                 "before_process": {
                     "0": {
@@ -728,7 +278,7 @@
                     },
                     "2": {
                         "name": "create table import_statistics",
-                        "action": "create  table if not exists import_statistics\r\n(\r\n    id                      bigserial    not null\r\n        constraint import_statistics_pkey\r\n            primary key,\r\n    file_name               varchar(200) not null\r\n        constraint import_statistics_file_name_key\r\n            unique,\r\n    file_size               bigint       not null,\r\n    status                  varchar(50)  not null,\r\n    started_reading         timestamp with time zone default CURRENT_TIMESTAMP,\r\n    finished_reading        timestamp with time zone,\r\n    reading_time            varchar,\r\n    number_of_wrong_lines   bigint,\r\n    number_of_correct_lines bigint,\r\n    wrong_lines             jsonb\r\n);",
+                        "action": "create table if not exists import_statistics\r\n(\r\n    id                      bigserial    not null\r\n        constraint import_statistics_pkey primary key,\r\n    file_name               varchar(200) not null\r\n        constraint import_statistics_file_name_key unique,\r\n    file_size               bigint       not null,\r\n    status                  varchar(50)  not null,\r\n    started_reading         timestamp with time zone default CURRENT_TIMESTAMP,\r\n    finished_reading        timestamp with time zone,\r\n    reading_time            varchar,\r\n    number_of_wrong_lines   bigint,\r\n    number_of_correct_lines bigint,\r\n    wrong_lines             jsonb\r\n);",
                         "expected_result": 0,
                         "true_next_step": 3,
                         "false_next_step": 3,
@@ -736,107 +286,7 @@
                     },
                     "3": {
                         "name": "create table if not exists",
-                        "action": "CREATE TABLE IF NOT EXISTS additional
-                                   (
-                                       id                                BIGSERIAL,
-                                       business_constitution_description varchar,
-                                       primary_ssic_description          varchar,
-                                       primary_user_described_activity   varchar,
-                                       street_name                       varchar,
-                                       entity_status_description         varchar,
-                                       annual_return_date                date,
-                                       postal_code                       varchar,
-                                       paid_up_capital10_preference      varchar,
-                                       entity_name                       varchar,
-                                       paid_up_capital2_others           varchar,
-                                       name_of_audit_firm3               varchar,
-                                       address_type                      varchar,
-                                       paid_up_capital9_currency         varchar,
-                                       paid_up_capital8_ordinary         varchar,
-                                       paid_up_capital6_others           varchar,
-                                       paid_up_capital6_ordinary         varchar,
-                                       level_no                          varchar,
-                                       paid_up_capital9_others           varchar,
-                                       former_entity_name9               varchar,
-                                       paid_up_capital7_currency         varchar,
-                                       paid_up_capital6_preference       varchar,
-                                       paid_up_capital4_currency         varchar,
-                                       secondary_ssic_code               varchar,
-                                       paid_up_capital7_preference       varchar,
-                                       paid_up_capital1_preference       varchar,
-                                       paid_up_capital2_preference       varchar,
-                                       uen                               varchar,
-                                       uen_issue_date                    date,
-                                       no_of_officers                    integer,
-                                       former_entity_name3               varchar,
-                                       building_name                     varchar,
-                                       no_of_charges                     integer,
-                                       paid_up_capital8_currency         varchar,
-                                       paid_up_capital2_ordinary         varchar,
-                                       paid_up_capital3_others           varchar,
-                                       paid_up_capital4_others           varchar,
-                                       secondary_ssic_description        varchar,
-                                       paid_up_capital10_currency        varchar,
-                                       paid_up_capital8_others           varchar,
-                                       paid_up_capital1_others           varchar,
-                                       paid_up_capital3_currency         varchar,
-                                       block                             varchar,
-                                       other_address_line2               varchar,
-                                       other_address_line1               varchar,
-                                       account_due_date                  date,
-                                       paid_up_capital7_ordinary         varchar,
-                                       former_entity_name8               varchar,
-                                       paid_up_capital5_preference       varchar,
-                                       former_entity_name2               varchar,
-                                       paid_up_capital3_preference       varchar,
-                                       former_entity_name1               varchar,
-                                       former_entity_name6               varchar,
-                                       former_entity_name7               varchar,
-                                       former_entity_name4               varchar,
-                                       former_entity_name5               varchar,
-                                       paid_up_capital4_ordinary         varchar,
-                                       secondary_user_described_activity varchar,
-                                       issuance_agency_id                varchar,
-                                       former_entity_name14              varchar,
-                                       former_entity_name15              varchar,
-                                       former_entity_name10              varchar,
-                                       registration_incorporation_date   date,
-                                       former_entity_name12              varchar,
-                                       former_entity_name13              varchar,
-                                       paid_up_capital2_currency         varchar,
-                                       paid_up_capital1_currency         varchar,
-                                       paid_up_capital8_preference       varchar,
-                                       primary_ssic_code                 varchar,
-                                       name_of_audit_firm5               varchar,
-                                       name_of_audit_firm4               varchar,
-                                       name_of_audit_firm1               varchar,
-                                       paf_constitution_description      varchar,
-                                       name_of_audit_firm2               varchar,
-                                       paid_up_capital9_ordinary         varchar,
-                                       paid_up_capital4_preference       varchar,
-                                       former_entity_name11              varchar,
-                                       unit_no                           varchar,
-                                       paid_up_capital5_others           varchar,
-                                       paid_up_capital6_currency         varchar,
-                                       paid_up_capital5_currency         varchar,
-                                       company_type_description          varchar,
-                                       uen_of_audit_firm3                varchar,
-                                       uen_of_audit_firm2                varchar,
-                                       uen_of_audit_firm1                varchar,
-                                       paid_up_capital10_ordinary        varchar,
-                                       paid_up_capital10_others          varchar,
-                                       uen_of_audit_firm4                varchar,
-                                       paid_up_capital7_others           varchar,
-                                       uen_of_audit_firm5                varchar,
-                                       entity_type_description           varchar,
-                                       paid_up_capital3_ordinary         varchar,
-                                       paid_up_capital5_ordinary         varchar,
-                                       paid_up_capital9_preference       varchar,
-                                       paid_up_capital1_ordinary         varchar,
-                                       date_of_source                    date,
-                                       file_source_id                    integer,
-                                       created                           TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-                                   )",
+                        "action": "CREATE TABLE IF NOT EXISTS additional\r\n(\r\n    id                  BIGSERIAL,\r\n    name                varchar,\r\n    raw_code            varchar,\r\n    sic_type            varchar,\r\n    raw_value           varchar,\r\n    country_code        varchar,\r\n    uuid                varchar,\r\n    faxes               varchar,\r\n    emails              varchar,\r\n    phones              varchar,\r\n    zip                 varchar,\r\n    city                varchar,\r\n    address1            varchar,\r\n    address2            varchar,\r\n    country_region      varchar,\r\n    country             varchar,\r\n    websites            varchar,\r\n    additional          varchar,\r\n    company_uuid        varchar,\r\n    coordinate_lat      varchar,\r\n    coordinate_long     varchar,\r\n    legal_form          varchar,\r\n    description         varchar,\r\n    updated_date        varchar,\r\n    company_status      varchar,\r\n    employees_number    varchar,\r\n    incorporation_date  integer,\r\n    registration_number varchar,\r\n    file_source_id      integer,\r\n    created             TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP\r\n);",
                         "expected_result": 0,
                         "true_next_step": 0,
                         "false_next_step": 0,
@@ -849,108 +299,8 @@
                         "last_step": true
                     },
                     "1": {
-                        "name": "DELETE duplicates",
-                        "action": "DELETE
-                                   FROM additional
-                                   WHERE id IN (SELECT id
-                                                FROM (SELECT id,
-                                                             ROW_NUMBER() OVER ( PARTITION BY business_constitution_description ,
-                                                                 primary_ssic_description ,
-                                                                 primary_user_described_activity ,
-                                                                 street_name ,
-                                                                 entity_status_description ,
-                                                                 annual_return_date ,
-                                                                 postal_code ,
-                                                                 paid_up_capital10_preference ,
-                                                                 entity_name ,
-                                                                 paid_up_capital2_others ,
-                                                                 name_of_audit_firm3 ,
-                                                                 address_type ,
-                                                                 paid_up_capital9_currency ,
-                                                                 paid_up_capital8_ordinary ,
-                                                                 paid_up_capital6_others ,
-                                                                 paid_up_capital6_ordinary ,
-                                                                 level_no ,
-                                                                 paid_up_capital9_others ,
-                                                                 former_entity_name9 ,
-                                                                 paid_up_capital7_currency ,
-                                                                 paid_up_capital6_preference ,
-                                                                 paid_up_capital4_currency ,
-                                                                 secondary_ssic_code ,
-                                                                 paid_up_capital7_preference ,
-                                                                 paid_up_capital1_preference ,
-                                                                 paid_up_capital2_preference ,
-                                                                 uen ,
-                                                                 uen_issue_date ,
-                                                                 no_of_officers ,
-                                                                 former_entity_name3 ,
-                                                                 building_name ,
-                                                                 no_of_charges ,
-                                                                 paid_up_capital8_currency ,
-                                                                 paid_up_capital2_ordinary ,
-                                                                 paid_up_capital3_others ,
-                                                                 paid_up_capital4_others ,
-                                                                 secondary_ssic_description ,
-                                                                 paid_up_capital10_currency ,
-                                                                 paid_up_capital8_others ,
-                                                                 paid_up_capital1_others ,
-                                                                 paid_up_capital3_currency ,
-                                                                 block ,
-                                                                 other_address_line2 ,
-                                                                 other_address_line1 ,
-                                                                 account_due_date ,
-                                                                 paid_up_capital7_ordinary ,
-                                                                 former_entity_name8 ,
-                                                                 paid_up_capital5_preference ,
-                                                                 former_entity_name2 ,
-                                                                 paid_up_capital3_preference ,
-                                                                 former_entity_name1 ,
-                                                                 former_entity_name6 ,
-                                                                 former_entity_name7 ,
-                                                                 former_entity_name4 ,
-                                                                 former_entity_name5 ,
-                                                                 paid_up_capital4_ordinary ,
-                                                                 secondary_user_described_activity ,
-                                                                 issuance_agency_id ,
-                                                                 former_entity_name14 ,
-                                                                 former_entity_name15 ,
-                                                                 former_entity_name10 ,
-                                                                 registration_incorporation_date ,
-                                                                 former_entity_name12 ,
-                                                                 former_entity_name13 ,
-                                                                 paid_up_capital2_currency ,
-                                                                 paid_up_capital1_currency ,
-                                                                 paid_up_capital8_preference ,
-                                                                 primary_ssic_code ,
-                                                                 name_of_audit_firm5 ,
-                                                                 name_of_audit_firm4 ,
-                                                                 name_of_audit_firm1 ,
-                                                                 paf_constitution_description ,
-                                                                 name_of_audit_firm2 ,
-                                                                 paid_up_capital9_ordinary ,
-                                                                 paid_up_capital4_preference ,
-                                                                 former_entity_name11 ,
-                                                                 unit_no ,
-                                                                 paid_up_capital5_others ,
-                                                                 paid_up_capital6_currency ,
-                                                                 paid_up_capital5_currency ,
-                                                                 company_type_description ,
-                                                                 uen_of_audit_firm3 ,
-                                                                 uen_of_audit_firm2 ,
-                                                                 uen_of_audit_firm1 ,
-                                                                 paid_up_capital10_ordinary ,
-                                                                 paid_up_capital10_others ,
-                                                                 uen_of_audit_firm4 ,
-                                                                 paid_up_capital7_others ,
-                                                                 uen_of_audit_firm5 ,
-                                                                 entity_type_description ,
-                                                                 paid_up_capital3_ordinary ,
-                                                                 paid_up_capital5_ordinary ,
-                                                                 paid_up_capital9_preference ,
-                                                                 paid_up_capital1_ordinary
-                                                                 ) AS row_num
-                                                      FROM additional) t
-                                                WHERE t.row_num > 1);",
+                        "name": "delete duplicates",
+                        "action": "DELETE\r\nFROM additional\r\nWHERE id IN (SELECT id\r\n             FROM (SELECT id,\r\n                          ROW_NUMBER()\r\n                          OVER ( PARTITION BY business_constitution_description ,primary_ssic_description , primary_user_described_activity , street_name , entity_status_description , annual_return_date ,postal_code ,paid_up_capital10_preference ,entity_name ,paid_up_capital2_others ,name_of_audit_firm3 ,address_type ,paid_up_capital9_currency ,paid_up_capital8_ordinary ,paid_up_capital6_others ,paid_up_capital6_ordinary ,level_no ,paid_up_capital9_others ,former_entity_name9 ,paid_up_capital7_currency ,paid_up_capital6_preference ,paid_up_capital4_currency ,secondary_ssic_code ,paid_up_capital7_preference ,paid_up_capital1_preference ,paid_up_capital2_preference ,uen ,uen_issue_date ,no_of_officers ,former_entity_name3 ,building_name ,no_of_charges ,paid_up_capital8_currency ,paid_up_capital2_ordinary ,paid_up_capital3_others ,paid_up_capital4_others ,secondary_ssic_description ,paid_up_capital10_currency ,paid_up_capital8_others ,paid_up_capital1_others ,paid_up_capital3_currency ,block ,other_address_line2 ,other_address_line1 ,account_due_date ,paid_up_capital7_ordinary ,former_entity_name8 , paid_up_capital5_preference ,former_entity_name2 ,paid_up_capital3_preference ,former_entity_name1 ,former_entity_name6 ,former_entity_name7 ,former_entity_name4 ,former_entity_name5 ,paid_up_capital4_ordinary ,secondary_user_described_activity , issuance_agency_id ,former_entity_name14 ,former_entity_name15 ,former_entity_name10 ,registration_incorporation_date ,former_entity_name12 ,former_entity_name13 ,paid_up_capital2_currency ,paid_up_capital1_currency ,paid_up_capital8_preference ,primary_ssic_code ,name_of_audit_firm5 ,name_of_audit_firm4 ,name_of_audit_firm1 ,paf_constitution_description ,name_of_audit_firm2 ,paid_up_capital9_ordinary ,paid_up_capital4_preference ,former_entity_name11 ,unit_no ,paid_up_capital5_others ,paid_up_capital6_currency ,paid_up_capital5_currency ,company_type_description ,uen_of_audit_firm3 ,uen_of_audit_firm2 ,uen_of_audit_firm1 ,paid_up_capital10_ordinary ,paid_up_capital10_others ,uen_of_audit_firm4 ,paid_up_capital7_others ,uen_of_audit_firm5 ,entity_type_description ,paid_up_capital3_ordinary ,paid_up_capital5_ordinary ,paid_up_capital9_preference ,paid_up_capital1_ordinary) AS row_num\r\n                   FROM additional) t\r\n             WHERE t.row_num > 1);",
                         "expected_result": 0,
                         "true_next_step": 0,
                         "false_next_step": 0,
@@ -959,7 +309,7 @@
                 },
                 "session_type": "AUTOMATIC",
                 "skipped_files": [
-
+                    
                 ]
             }
         }
