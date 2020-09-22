@@ -52,7 +52,7 @@
                     {
                         "name": "annual_return_date",
                         "index": 5,
-                        "filter":"(?:^|\\W)na(?:$|\\W)|T([^T]*)",
+                        "filter":"T([^T]*)",
                         "type": "date"
                     },
                     {
@@ -184,7 +184,7 @@
                     {
                         "name": "uen_issue_date",
                         "index": 27,
-                        "filter":"(?:^|\\W)na(?:$|\\W)|T([^T]*)",
+                        "filter":"T([^T]*)",
                         "type": "date"
                     },
                     {
@@ -286,7 +286,7 @@
                     {
                         "name": "account_due_date",
                         "index": 44,
-                        "filter":"(?:^|\\W)na(?:$|\\W)|T([^T]*)",
+                        "filter":"T([^T]*)",
                         "type": "date"
                     },
                     {
@@ -388,7 +388,7 @@
                     {
                         "name": "registration_incorporation_date",
                         "index": 61,
-                        "filter":"(?:^|\\W)na(?:$|\\W)|T([^T]*)",
+                        "filter":"T([^T]*)",
                         "type": "date"
                     },
                     {
