@@ -1,6 +1,6 @@
 {
     "source_config": {
-        "source_url": "http://file.ebs.internal/",
+        "source_url": "",
         "source_type": {
             "AD001": {
                 "source_type": "AD001",
