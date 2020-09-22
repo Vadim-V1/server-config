@@ -1,0 +1,185 @@
+{
+    "source_config": {
+        "source_url": "http://file.ebs.internal/",
+        "source_type": {
+            "AD001": {
+                "source_type": "AD001",
+                "charset": "Cp1252",
+                "bid_definition": {
+                    "version": "1",
+                    "type": "1",
+                    "tag": "1",
+                    "zone": "UK"
+                },
+                "date_formats": [
+                    "yyyyMMdd"
+                ],
+                "fields": [
+                    {
+                        "name": "company_id",
+                        "start": 5,
+                        "size": 14,
+                        "type": "string",
+                        "filter": "[\\\\\b\"\n|]"
+                    },
+                    {
+                        "name": "description",
+                        "start": 19,
+                        "size": 460,
+                        "type": "string",
+                        "filter": "[\\\\\b\"\n|]"
+                    }
+                ],
+                "table_name": "additional",
+                "table_columns": [
+                    "company_id",
+                    "description",
+                    "date_of_source",
+                    "file_source_id"
+                ],
+                "before_process": {
+                    "0": {
+                        "name": "last_step",
+                        "last_step": true
+                    },
+                    "1": {
+                        "name": "check if target exist",
+                        "action": "SELECT 1 FROM pg_database WHERE datname = 'cs_uk_txt'",
+                        "expected_result": 1,
+                        "true_next_step": 3,
+                        "false_next_step": 2,
+                        "query_type": "executeQuery"
+                    },
+                    "2": {
+                        "name": "create target",
+                        "action": "CREATE DATABASE cs_uk_txt",
+                        "expected_result": 0,
+                        "true_next_step": 3,
+                        "false_next_step": 3,
+                        "query_type": "executeUpdate"
+                    },
+                    "3": {
+                        "name": "switch database",
+                        "action": "cs_uk_txt",
+                        "expected_result": 0,
+                        "true_next_step": 0,
+                        "false_next_step": 0,
+                        "query_type": "switchDB"
+                    }
+                },
+                "before_read": {
+                    "0": {
+                        "name": "last_step",
+                        "last_step": true
+                    },
+                    "1": {
+                        "name": "switch database",
+                        "action": "cs_uk_txt",
+                        "expected_result": 0,
+                        "true_next_step": 2,
+                        "false_next_step": 2,
+                        "query_type": "switchDB"
+                    },
+                    "2": {
+                        "name": "create table import_statistics",
+                        "action": "create  table if not exists import_statistics\r\n(\r\n    id                      bigserial    not null\r\n        constraint import_statistics_pkey\r\n            primary key,\r\n    file_name               varchar(200) not null\r\n        constraint import_statistics_file_name_key\r\n            unique,\r\n    file_size               bigint       not null,\r\n    status                  varchar(50)  not null,\r\n    started_reading         timestamp with time zone default CURRENT_TIMESTAMP,\r\n    finished_reading        timestamp with time zone,\r\n    reading_time            varchar,\r\n    number_of_wrong_lines   bigint,\r\n    number_of_correct_lines bigint,\r\n    wrong_lines             jsonb\r\n);",
+                        "expected_result": 0,
+                        "true_next_step": 3,
+                        "false_next_step": 3,
+                        "query_type": "executeUpdate"
+                    },
+                    "3": {
+                        "name": "create table if not exists",
+                        "action": "CREATE TABLE IF NOT EXISTS additional (id BIGSERIAL, company_id varchar, description varchar, date_of_source date, file_source_id integer, created TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP)",
+                        "expected_result": 0,
+                        "true_next_step": 4,
+                        "false_next_step": 4,
+                        "query_type": "executeUpdate"
+                    },
+                    "4": {
+                        "name": "verify session status_import",
+                        "action": "SELECT CASE WHEN status IS FALSE THEN 1 ELSE 0 END FROM profiles WHERE name = 'AD001' AND session_id = (SELECT session_id FROM profiles WHERE name = 'AD001' ORDER BY session_id DESC LIMIT 1);",
+                        "expected_result": 1,
+                        "true_next_step": 5,
+                        "false_next_step": 0,
+                        "query_type": "executeResultSetInteger"
+                    },
+                    "5": {
+                        "name": "drop index if exists for column date_of_source and company_id",
+                        "action": "DROP INDEX IF EXISTS additional_company_id_date_of_source_pk_idx;",
+                        "expected_result": 0,
+                        "true_next_step": 6,
+                        "false_next_step": 6,
+                        "query_type": "executeUpdate"
+                    },
+                    "6": {
+                        "name": "drop index if exists for column created",
+                        "action": "DROP INDEX IF EXISTS additional_created_pk_idx;",
+                        "expected_result": 0,
+                        "true_next_step": 7,
+                        "false_next_step": 7,
+                        "query_type": "executeUpdate"
+                    },
+                    "7": {
+                        "name": "drop index if exists for column id",
+                        "action": "DROP INDEX IF EXISTS additional_id_pk_idx;",
+                        "expected_result": 0,
+                        "true_next_step": 0,
+                        "false_next_step": 0,
+                        "query_type": "executeUpdate"
+                    }
+                },
+                "after_read": {
+                    "0": {
+                        "name": "last_step",
+                        "last_step": true
+                    },
+                    "1": {
+                        "name": "DELETE duplicates",
+                        "action": "DELETE FROM additional WHERE id IN (SELECT id FROM (SELECT id, ROW_NUMBER() OVER ( PARTITION BY company_id, description ORDER BY date_of_source DESC) AS row_num FROM additional) t WHERE t.row_num > 1);",
+                        "expected_result": 0,
+                        "true_next_step": 2,
+                        "false_next_step": 2,
+                        "query_type": "executeUpdate"
+                    },
+                    "2": {
+                        "name": "create index if not exists for column date_of_source and company_id",
+                        "action": "CREATE INDEX IF NOT EXISTS additional_company_id_date_of_source_pk_idx ON additional(company_id ASC, date_of_source DESC);",
+                        "expected_result": 0,
+                        "true_next_step": 3,
+                        "false_next_step": 3,
+                        "query_type": "executeUpdate"
+                    },
+                    "3": {
+                        "name": "create index if not exists for column id",
+                        "action": "CREATE INDEX IF NOT EXISTS additional_id_pk_idx ON additional(id);",
+                        "expected_result": 0,
+                        "true_next_step": 4,
+                        "false_next_step": 4,
+                        "query_type": "executeUpdate"
+                    },
+                    "4": {
+                        "name": "create index if not exists for column created",
+                        "action": "CREATE INDEX IF NOT EXISTS additional_created_pk_idx ON additional(created);",
+                        "expected_result": 0,
+                        "true_next_step": 5,
+                        "false_next_step": 5,
+                        "query_type": "executeUpdate"
+                    },
+                    "5": {
+                        "name": "create cluster for column date_of_source and company_id",
+                        "action": "SET enable_sort=off; CLUSTER additional USING additional_company_id_date_of_source_pk_idx;",
+                        "expected_result": 0,
+                        "true_next_step": 0,
+                        "false_next_step": 0,
+                        "query_type": "executeUpdate"
+                    }
+                },
+                "session_type": "AUTOMATIC",
+                "skipped_files": [
+                    
+                ]
+            }
+        }
+    }
+}
